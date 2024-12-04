@@ -22,9 +22,9 @@ while frontier:
                 frontier.append(page)
     level += 1
     del frontier[:rem]
-if len(viewed) == n:
+
+if len(set(viewed)) == n:
     print("Y")
     print(shortcut[0])
 else:
     print("N")
-    print(shortcut[0])

@@ -1,41 +1,26 @@
-word = input()
-vowels = ["a","e","i","o","u"]
-vowels_2 = [97, 101, 105, 111, 117]
-final_word = []
-def vowel_finder(send_it):
-    x = send_it
-    y = send_it
-    counter = 0
-    for i in range(7):
+word = list(input())
+vowels = list("aeiou")
+def vowel_check(x,y):
+    for _ in range(26):
         x += 1
+        let = chr(x)
+        if let == vowels:
+            return x
+        else:
+            let = ord(x)
         y -= 1
-        counter += 2
-
-        if y in vowels_2:
-            send_it = y
-            break
-        elif x in vowels_2:
-            send_it = x
-            break
-    send_it = chr(send_it)
-    return send_it
+        lett = chr(y)
+        if lett == vowels:
+            return y
+        else:
+            lett = ord(y)
+        
+        
 
 for i in range(len(word)):
-    if word[i] in vowels:
-        final_word.append(word[i])  
-    elif word[i] not in vowels:
-        final_word.append(word[i])
-        send_it = ord(word[i])
-        send_it = vowel_finder(send_it)
-        final_word.append(send_it)
-        j = ord(word[i])+1
-        if j not in vowels_2:
-            if j == 123:
-                final_word.append("z")
-            else:
-                final_word.append(chr(j))
-        elif j in vowels_2:
-            j += 1
-            final_word.append(chr(j))
-print(*final_word,sep="")
-
+    for j in range(26):
+        if word[i] != vowels:
+            x = ord(word[i])
+            y = ord(word[i])
+            vowel = vowel_check(x,y)
+print(vowel)
